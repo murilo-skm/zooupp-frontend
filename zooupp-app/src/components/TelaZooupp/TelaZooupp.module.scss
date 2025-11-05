@@ -1,0 +1,306 @@
+@import '../../styles/variables';
+@import '../../styles/mixins'; 
+
+/* --- Estrutura Base --- */
+
+.zoouppContainer {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $color-white; 
+}
+
+.zoouppMain {
+  padding: 1rem 1.25rem;
+  padding-bottom: 90px;
+}
+
+/* --- Cabeçalho --- */
+
+.zoouppHeader {
+  background-color: $color-primary;
+  color: $color-white;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky; 
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .zoouppLogo {
+    display: flex;
+    align-items: center; 
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem; 
+    }
+
+    .headerLogo {
+      height: 35px; 
+      width: auto; 
+      margin-right: 0.5rem; 
+      object-fit: contain;      
+      background-color: transparent; 
+    }
+  }
+  .menuButton {
+    background-color: $color-accent; 
+    color: #FFF;
+    border: none;
+    padding: 0.5rem; 
+    border-radius: 50%; 
+    font-size: 1.5rem; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; 
+    height: 40px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    text-shadow: 
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+  }
+}
+
+/* --- Busca --- */
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  background-color: $color-light-gray;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid $color-border;
+
+  span, svg {
+    margin-right: 0.5rem;
+    color: #777;
+    font-size: 1.1rem; 
+  }
+
+  input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-size: 1rem;
+    outline: none;
+  }
+}
+
+/* --- Categorias --- */
+
+.zoouppCategories {
+  margin-bottom: 1.5rem;
+  
+  h2 { 
+    display: none; 
+  }
+
+  .categoryList {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto; 
+    padding-bottom: 0.5rem;
+  }
+
+  .categoryItem {
+    background-color: $color-white;
+    border: 1px solid $color-border;
+    border-radius: 10px;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    min-width: 90px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+    .categoryIcon {
+      font-size: 1.8rem; 
+      display: block;
+      margin-bottom: 0.5rem;
+      color: $color-secondary; 
+      
+      svg { 
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: $color-text;
+    }
+  }
+}
+
+/* --- Seções de Lojas (Título) --- */
+
+.zoouppStores {
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* --- Lojas Destaque (Cards Grandes) --- */
+
+.storeList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+.storeCard {
+  background-color: $color-white;
+  border-radius: 10px;
+  border: 1px solid $color-border;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+  img {
+    width: 100%;
+    height: 105px; 
+    object-fit: contain; 
+    background-color: $color-white; 
+  }
+  
+  .storeInfo {
+      padding: 1rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+    
+    svg {
+      vertical-align: text-bottom;
+      margin-right: 0.25rem;
+      color: #f5c518; 
+    }
+  }
+}
+
+/* --- Outras Lojas (Cards Pequenos) --- */
+
+.smallStoreList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem; 
+
+  @include tablet {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.smallStoreCard {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 10px;
+  overflow: hidden; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: left; 
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    width: 100%; 
+    height: 100px; 
+    object-fit: contain; 
+    background-color: $color-light-gray; 
+  }
+
+  .storeInfo {
+    padding: 0.75rem; 
+    
+    h3 {
+      font-size: 0.95rem; 
+      margin: 0 0 0.25rem 0;
+      color: $color-text;
+      white-space: nowrap; 
+      overflow: hidden;    
+      text-overflow: ellipsis; 
+    }
+  }
+}
+
+.storeRating {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem; 
+  color: #666;
+  font-size: 0.8rem; 
+  margin: 0;
+
+  svg {
+    color: #f5c518; 
+    font-size: 0.7rem; 
+  }
+}
+
+.storeSubtext {
+  font-size: 0.75rem; 
+  color: #888;
+  margin: 0.25rem 0 0 0;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Navegação Inferior --- */
+
+.bottomNav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; 
+  background-color: $color-white;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  
+  @include tablet {
+    display: none;
+  }
+
+  .navItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #777;
+    font-size: 0.75rem;
+    cursor: pointer;
+
+    svg { 
+      font-size: 1.4rem; 
+      margin-bottom: 0.25rem;
+    }
+
+    &.active {
+      color: $color-primary; 
+    }
+  }
+}
