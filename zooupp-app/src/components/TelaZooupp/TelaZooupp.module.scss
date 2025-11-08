@@ -1,8 +1,6 @@
 @import '../../styles/variables';
 @import '../../styles/mixins'; 
 
-/* --- Estrutura Base --- */
-
 .zoouppContainer {
   width: 100%;
   min-height: 100vh;
@@ -13,8 +11,6 @@
   padding: 1rem 1.25rem;
   padding-bottom: 90px;
 }
-
-/* --- Cabeçalho --- */
 
 .zoouppHeader {
   background-color: $color-primary;
@@ -45,9 +41,10 @@
       background-color: transparent; 
     }
   }
+
   .menuButton {
     background-color: $color-accent; 
-    color: #FFF;
+    color: #FFF; 
     border: none;
     padding: 0.5rem; 
     border-radius: 50%; 
@@ -59,6 +56,7 @@
     width: 40px; 
     height: 40px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    
     text-shadow: 
       -1px -1px 0 #000,  
        1px -1px 0 #000,
@@ -66,8 +64,6 @@
        1px  1px 0 #000;
   }
 }
-
-/* --- Busca --- */
 
 .searchWrapper {
   display: flex;
@@ -93,8 +89,6 @@
   }
 }
 
-/* --- Categorias --- */
-
 .zoouppCategories {
   margin-bottom: 1.5rem;
   
@@ -117,6 +111,13 @@
     text-align: center;
     min-width: 90px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    cursor: pointer; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+
+    &:hover { 
+      transform: translateY(-3px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
     .categoryIcon {
       font-size: 1.8rem; 
@@ -138,16 +139,12 @@
   }
 }
 
-/* --- Seções de Lojas (Título) --- */
-
 .zoouppStores {
   h2 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
   }
 }
-
-/* --- Lojas Destaque (Cards Grandes) --- */
 
 .storeList {
   display: flex;
@@ -166,6 +163,7 @@
   border: 1px solid $color-border;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  cursor: pointer; 
 
   img {
     width: 100%;
@@ -195,8 +193,6 @@
     }
   }
 }
-
-/* --- Outras Lojas (Cards Pequenos) --- */
 
 .smallStoreList {
   display: grid;
@@ -266,8 +262,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-/* --- Navegação Inferior --- */
 
 .bottomNav {
   display: flex;

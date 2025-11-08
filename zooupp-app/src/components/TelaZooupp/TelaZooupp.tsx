@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './TelaZooupp.module.scss';
 
-// Importação de Ícones
 import { 
   BsHeartPulse, 
   BsShop, 
@@ -11,7 +10,6 @@ import {
   BsScissors,
   BsStarFill 
 } from 'react-icons/bs'; 
-
 import { 
   FiSearch, 
   FiHome, 
@@ -20,7 +18,6 @@ import {
   FiMenu 
 } from 'react-icons/fi'; 
 
-// Importação das Imagens
 import logoCobasi from '../../assets/images/cobasi-logo.png';
 import logoPetz from '../../assets/images/petz-logo.png';
 import logoPetshopGenerico1 from '../../assets/images/petshop-logo-1.png';
@@ -31,12 +28,22 @@ import logoPetshopGenerico5 from '../../assets/images/petshop-logo-5.png';
 import logoPetshopGenerico6 from '../../assets/images/petshop-logo-6.png';
 import logoZooupp from '../../assets/images/zooupp-logo.png';
 
+type TelaZoouppProps = {
+  onStoreClick: (storeId: string) => void; 
+  onClinicasClick: () => void;
+  onPetshopsClick: () => void;
+  onHoteisClick: () => void;
+}
 
-const TelaZooupp: React.FC = () => {
+const TelaZooupp: React.FC<TelaZoouppProps> = ({ 
+  onStoreClick, 
+  onClinicasClick, 
+  onPetshopsClick, 
+  onHoteisClick 
+}) => {
   return (
     <div className={styles.zoouppContainer}>
 
-      {/* Cabeçalho */}
       <header className={styles.zoouppHeader}>
         <div className={styles.zoouppLogo}>
           <img src={logoZooupp} alt="Zooupp Logo" className={styles.headerLogo} />
@@ -47,50 +54,58 @@ const TelaZooupp: React.FC = () => {
         </button>
       </header>
 
-      {/* Conteúdo Principal */}
       <main className={styles.zoouppMain}>
 
-        {/* Barra de Busca */}
         <div className={styles.searchWrapper}>
           <span><FiSearch /></span>
           <input type="text" placeholder="Buscar lojas ou produtos..." />
         </div>
 
-        {/* Categorias */}
         <section className={styles.zoouppCategories}>
           <div className={styles.categoryList}>
-             <div className={styles.categoryItem}>
+             <div 
+               className={styles.categoryItem} 
+               onClick={onClinicasClick}
+             >
               <span className={styles.categoryIcon}><BsHeartPulse /></span>
               <p>Veterinários</p>
             </div>
-            <div className={styles.categoryItem}>
+            <div 
+              className={styles.categoryItem} 
+              onClick={onPetshopsClick}
+            >
               <span className={styles.categoryIcon}><BsShop /></span>
               <p>Pet Shops</p>
             </div>
-            <div className={styles.categoryItem}>
+            <div className={styles.categoryItem} onClick={() => alert('Botão clicado!')}>
               <span className={styles.categoryIcon}><BsHouseHeart /></span>
               <p>Adote seu filhote</p>
             </div>
-            <div className={styles.categoryItem}>
+            <div 
+              className={styles.categoryItem} 
+              onClick={onHoteisClick}
+            >
               <span className={styles.categoryIcon}><BsFillHouseFill /></span>
               <p>Hotéis</p>
             </div>
-            <div className={styles.categoryItem}>
+            <div className={styles.categoryItem} onClick={() => alert('Botão clicado!')}>
               <span className={styles.categoryIcon}><BsPeople /></span>
               <p>Parceiros</p>
             </div>
-            <div className={styles.categoryItem}>
+            <div className={styles.categoryItem} onClick={() => alert('Botão clicado!')}>
               <span className={styles.categoryIcon}><BsScissors /></span>
               <p>Banho & Tosa</p>
             </div>
           </div>
         </section>
 
-        {/* Lojas em Destaque */}
         <section className={styles.zoouppStores}>
           <h2>Lojas em destaque</h2>
           <div className={styles.storeList}>
-            <div className={styles.storeCard}>
+            <div 
+              className={styles.storeCard} 
+              onClick={() => onStoreClick('cobasi')}
+            >
               <img src={logoCobasi} alt="Cobasi" />
               <div className={styles.storeInfo}>
                 <h3>Cobasi</h3>
@@ -98,7 +113,10 @@ const TelaZooupp: React.FC = () => {
                 <p>A maior variedade para seu pet</p>
               </div>
             </div>
-            <div className={styles.storeCard}>
+            <div 
+              className={styles.storeCard} 
+              onClick={() => onStoreClick('petz')}
+            >
               <img src={logoPetz} alt="Petz" />
               <div className={styles.storeInfo}>
                 <h3>Petz</h3>
@@ -109,11 +127,13 @@ const TelaZooupp: React.FC = () => {
           </div>
         </section>
 
-        {/* Outras Lojas */}
         <section className={styles.zoouppStores}>
           <h2>Outras lojas</h2>
           <div className={styles.smallStoreList}> 
-            <div className={styles.smallStoreCard}>
+            <div 
+              className={styles.smallStoreCard} 
+              onClick={() => onStoreClick('petshop1')}
+            >
               <img src={logoPetshopGenerico1} alt="Petshop 1" />
               <div className={styles.storeInfo}>
                 <h3>Pet Shop do Bairro</h3>
@@ -123,7 +143,10 @@ const TelaZooupp: React.FC = () => {
                 <p className={styles.storeSubtext}>Banho e Tosa</p>
               </div>
             </div>
-            <div className={styles.smallStoreCard}>
+            <div 
+              className={styles.smallStoreCard} 
+              onClick={() => onStoreClick('petshop2')}
+            >
               <img src={logoPetshopGenerico2} alt="Petshop 2" />
               <div className={styles.storeInfo}>
                 <h3>Casa da Ração</h3>
@@ -133,43 +156,41 @@ const TelaZooupp: React.FC = () => {
                 <p className={styles.storeSubtext}>Entregas Rápidas</p>
               </div>
             </div>
-            <div className={styles.smallStoreCard}>
+            <div 
+              className={styles.smallStoreCard} 
+              onClick={onClinicasClick}
+            >
               <img src={logoPetshopGenerico3} alt="Petshop 3" />
               <div className={styles.storeInfo}>
                 <h3>Clínica Vet Patinhas</h3>
-                <p className={styles.storeRating}>
-                  <BsStarFill /> 4.7 • 3.1km
-                </p>
+                <p className={styles.storeRating}><BsStarFill /> 4.7 • 3.1km</p>
                 <p className={styles.storeSubtext}>Veterinário 24h</p>
               </div>
             </div>
-            <div className={styles.smallStoreCard}>
+            <div 
+              className={styles.smallStoreCard} 
+              onClick={onHoteisClick}
+            >
               <img src={logoPetshopGenerico4} alt="Petshop 4" />
               <div className={styles.storeInfo}>
                 <h3>Hotelzinho do Cão</h3>
-                <p className={styles.storeRating}>
-                  <BsStarFill /> 4.6 • 5.0km
-                </p>
+                <p className={styles.storeRating}><BsStarFill /> 4.6 • 5.0km</p>
                 <p className={styles.storeSubtext}>Creche e Hospedagem</p>
               </div>
             </div>
-            <div className={styles.smallStoreCard}>
+            <div className={styles.smallStoreCard} onClick={() => onStoreClick('petshop5')}>
               <img src={logoPetshopGenerico5} alt="Petshop 5" />
               <div className={styles.storeInfo}>
                 <h3>Mundo Animal</h3>
-                <p className={styles.storeRating}>
-                  <BsStarFill /> 4.2 • 0.5km
-                </p>
+                <p className={styles.storeRating}><BsStarFill /> 4.2 • 0.5km</p>
                 <p className={styles.storeSubtext}>Acessórios e Brinquedos</p>
               </div>
             </div>
-            <div className={styles.smallStoreCard}>
+            <div className={styles.smallStoreCard} onClick={() => onStoreClick('petshop6')}>
               <img src={logoPetshopGenerico6} alt="Petshop 6" />
               <div className={styles.storeInfo}>
                 <h3>Estilo Pet</h3>
-                <p className={styles.storeRating}>
-                  <BsStarFill /> 4.9 • 1.8km
-                </p>
+                <p className={styles.storeRating}><BsStarFill /> 4.9 • 1.8km</p>
                 <p className={styles.storeSubtext}>Roupas e Moda Pet</p>
               </div>
             </div>
@@ -177,7 +198,6 @@ const TelaZooupp: React.FC = () => {
         </section>
       </main>
 
-      {/* Navegação Inferior */}
       <nav className={styles.bottomNav}>
         <div className={`${styles.navItem} ${styles.active}`}>
           <FiHome />
