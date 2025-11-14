@@ -7,15 +7,16 @@ import {
   BsHouseHeart, 
   BsFillHouseFill, 
   BsPeople,
-  BsScissors,
-  BsStarFill 
+  BsStarFill,
+  BsHeartFill
 } from 'react-icons/bs'; 
 import { 
   FiSearch, 
   FiHome, 
   FiFileText, 
   FiUser,
-  FiMenu 
+  FiMenu,
+  FiMapPin
 } from 'react-icons/fi'; 
 
 import logoCobasi from '../../assets/images/cobasi-logo.png';
@@ -27,27 +28,55 @@ import logoPetshopGenerico4 from '../../assets/images/petshop-logo-4.png';
 import logoPetshopGenerico5 from '../../assets/images/petshop-logo-5.png';
 import logoPetshopGenerico6 from '../../assets/images/petshop-logo-6.png';
 import logoZooupp from '../../assets/images/zooupp-logo.png';
+import ModalDesconto from '../ModalDesconto/ModalDesconto';
 
 type TelaZoouppProps = {
   onStoreClick: (storeId: string) => void; 
   onClinicasClick: () => void;
   onPetshopsClick: () => void;
   onHoteisClick: () => void;
+  onTinderPetClick: () => void;
+  onAdocaoClick: () => void;
+  onParceirosClick: () => void;
+  onLogoClick: () => void;
+  showModal: boolean;
+  onCloseModal: () => void;
 }
 
 const TelaZooupp: React.FC<TelaZoouppProps> = ({ 
   onStoreClick, 
   onClinicasClick, 
   onPetshopsClick, 
-  onHoteisClick 
+  onHoteisClick,
+  onTinderPetClick,
+  onAdocaoClick,
+  onParceirosClick,
+  onLogoClick,
+  showModal,
+  onCloseModal
 }) => {
   return (
     <div className={styles.zoouppContainer}>
 
+      <ModalDesconto
+        show={showModal}
+        onClose={onCloseModal}
+        title="Desconto Especial!"
+        message="15% de desconto"
+        storeName="em rações selecionadas!"
+      />
+
       <header className={styles.zoouppHeader}>
-        <div className={styles.zoouppLogo}>
+        <div className={styles.zoouppLogo} onClick={onLogoClick}>
           <img src={logoZooupp} alt="Zooupp Logo" className={styles.headerLogo} />
-          <h1>Zooupp+</h1>
+        </div>
+
+        <div className={styles.userLocation}>
+          <span className={styles.userName}>Isadora</span>
+          <div className={styles.userAddress}>
+            <FiMapPin />
+            <span>Av. Ipiranga, 6681</span>
+          </div>
         </div>
         <button className={styles.menuButton}>
           <FiMenu />
@@ -70,6 +99,15 @@ const TelaZooupp: React.FC<TelaZoouppProps> = ({
               <span className={styles.categoryIcon}><BsHeartPulse /></span>
               <p>Veterinários</p>
             </div>
+            
+            <div 
+               className={styles.categoryItem} 
+               onClick={onTinderPetClick}
+            >
+              <span className={styles.categoryIcon}><BsHeartFill /></span>
+              <p>Match Pet</p>
+            </div>
+
             <div 
               className={styles.categoryItem} 
               onClick={onPetshopsClick}
@@ -77,10 +115,15 @@ const TelaZooupp: React.FC<TelaZoouppProps> = ({
               <span className={styles.categoryIcon}><BsShop /></span>
               <p>Pet Shops</p>
             </div>
-            <div className={styles.categoryItem} onClick={() => alert('Botão clicado!')}>
+            
+            <div 
+              className={styles.categoryItem} 
+              onClick={onAdocaoClick}
+            >
               <span className={styles.categoryIcon}><BsHouseHeart /></span>
               <p>Adote seu filhote</p>
             </div>
+
             <div 
               className={styles.categoryItem} 
               onClick={onHoteisClick}
@@ -88,13 +131,13 @@ const TelaZooupp: React.FC<TelaZoouppProps> = ({
               <span className={styles.categoryIcon}><BsFillHouseFill /></span>
               <p>Hotéis</p>
             </div>
-            <div className={styles.categoryItem} onClick={() => alert('Botão clicado!')}>
+            
+            <div 
+              className={styles.categoryItem} 
+              onClick={onParceirosClick}
+            >
               <span className={styles.categoryIcon}><BsPeople /></span>
               <p>Parceiros</p>
-            </div>
-            <div className={styles.categoryItem} onClick={() => alert('Botão clicado!')}>
-              <span className={styles.categoryIcon}><BsScissors /></span>
-              <p>Banho & Tosa</p>
             </div>
           </div>
         </section>

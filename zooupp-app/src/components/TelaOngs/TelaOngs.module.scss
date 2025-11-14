@@ -1,12 +1,12 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.hoteisContainer {
+.ongsContainer {
   background-color: $color-white;
   min-height: 100vh;
 }
 
-.hoteisHeader {
+.ongsHeader {
   display: flex;
   align-items: center;
   padding: 1rem 1.25rem;
@@ -35,7 +35,7 @@
   margin: 0;
 }
 
-.hoteisMain {
+.ongsMain {
   padding: 1.25rem;
 }
 
@@ -70,13 +70,13 @@
   padding: 1rem;
 }
 
-.hotelList {
+.ongList {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.hotelCard {
+.ongCard {
   display: flex;
   align-items: center;
   background-color: $color-white;
@@ -87,7 +87,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   cursor: pointer;
 
-  .hotelImage {
+  .ongImage {
     width: 80px;
     height: 80px;
     object-fit: cover;
@@ -95,7 +95,7 @@
     background-color: $color-light-gray;
   }
 
-  .hotelInfo {
+  .ongInfo {
     flex: 1;
 
     h3 {
@@ -104,7 +104,7 @@
       color: $color-text;
     }
 
-    .hotelRating {
+    .ongRating {
       display: flex;
       align-items: center;
       gap: 0.3rem;
@@ -118,54 +118,10 @@
       }
     }
 
-    .hotelSubtext {
+    .ongSubtext {
       font-size: 0.8rem;
       color: #888;
       margin: 0;
     }
-  }
-}
-
-.viewToggle {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  background-color: $color-light-gray;
-  border-radius: 20px;
-  padding: 0.25rem;
-}
-
-.toggleButton {
-  flex: 1;
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: transparent;
-  color: $color-text;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-
-  &.active {
-    background-color: $color-primary;
-    color: $color-white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-}
-
-.mapContainer {
-  height: calc(100vh - 300px);
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid $color-border;
-  
-  .leaflet-container {
-    height: 100%;
-    width: 100%;
   }
 }

@@ -17,7 +17,7 @@
   color: $color-white;
   padding: 1rem 1.25rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
   position: sticky; 
   top: 0;
@@ -27,18 +27,48 @@
   .zoouppLogo {
     display: flex;
     align-items: center; 
+    flex-shrink: 0;
+  }
 
-    h1 {
-      margin: 0;
-      font-size: 1.5rem; 
-    }
+  .headerLogo {
+    height: 35px; 
+    width: auto; 
+    object-fit: contain;      
+    background-color: transparent; 
+  }
+  
+  .userLocation {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    flex-grow: 1; 
+    margin: 0 0.5rem; 
+    overflow: hidden; 
+  }
+  
+  .userName {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $color-white;
+    margin-bottom: 2px;
+  }
+  
+  .userAddress {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    color: $color-white;
+    opacity: 0.9; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+    overflow: hidden;
 
-    .headerLogo {
-      height: 35px; 
-      width: auto; 
-      margin-right: 0.5rem; 
-      object-fit: contain;      
-      background-color: transparent; 
+    svg {
+      font-size: 0.9rem;
+      stroke-width: 3;
+      flex-shrink: 0; 
     }
   }
 
@@ -56,6 +86,7 @@
     width: 40px; 
     height: 40px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    flex-shrink: 0; 
     
     text-shadow: 
       -1px -1px 0 #000,  

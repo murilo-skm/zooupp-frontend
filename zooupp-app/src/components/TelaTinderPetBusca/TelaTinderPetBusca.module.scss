@@ -1,0 +1,114 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.tinderPetBuscaContainer {
+  background-color: $color-white;
+  min-height: 100vh;
+}
+
+.tinderPetBuscaHeader {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background-color: $color-white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.backButton {
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: $color-primary;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.headerTitle {
+  font-size: 1.2rem;
+  color: $color-text;
+  margin: 0;
+}
+
+.tinderPetBuscaMain {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: $color-text;
+  }
+
+  select {
+    padding: 0.75rem 1rem;
+    border: 1px solid $color-border;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: $color-white;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+    }
+  }
+}
+
+.buscarButton {
+  background-color: $color-secondary;
+  color: $color-white;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 8px rgba($color-secondary, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: darken($color-secondary, 10%);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  svg {
+    font-size: 1.3rem;
+  }
+}
